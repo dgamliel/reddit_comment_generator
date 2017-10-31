@@ -1,45 +1,33 @@
 import praw
-import config
 from praw.models import MoreComments
 
+word_score_dict = {}
 
-'''
-This strings is the "trigger"
-that when found in a reddit comment
-will prompt our script to reply to the comment
-with the emojified text of the parent comment.
-'''
+def log_and_score(word):
+    if word not in word_score_dict:
+        word_score_dict[word] = 1
 
-phrase = "!emojify"
-
-def login():
-
-        '''
-        Initializes a reddit instance.
-        logs in by importing config.txt.
-
-        Username, password, client_id, and client_secret are all strings.
-        '''
-
-        reddit = praw.Reddit(username = config.username,
-                                 password = config.password,
-                                 client_id = config.client_id,
-                                 client_secret = config.client_secret,
-                                             user_agent = config.user_agent)
-
-        print ("Successfully logged into reddit" + '\n')
-
-        return reddit #Returns a reddit instance, essentially "logs in"
+    else:
+        word_score_dict[word] += 1
 
 def get_data():
 
     reddit = praw.Reddit('bot1')
 
-    for post in reddit.subreddit('The_Donald').hot():
+    for post in reddit.subreddit('The_Donald').top():
+        print (" ### POST IS ###")
+        print (post.title + '\n')
+        print ("--------------------------------- AND SCORE IS : " + str(post.score))
         for comment_forest in post.comments:
+
             if isinstance(comment_forest, MoreComments):
                 continue
+
+            if comment_forest.body == "[deleted]" or comment_forest.body == "[removed]":
+                continue
+
             print (comment_forest.body)
+            print ("\n" + "COMMENT SCORE IS : " + str(comment_forest.score))
             comment_forest = comment_forest.body
 
 
