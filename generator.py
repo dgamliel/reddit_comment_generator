@@ -1,4 +1,6 @@
 import praw
+import config
+from praw.models import MoreComments
 
 
 '''
@@ -31,8 +33,18 @@ def login():
 
 def get_data():
 
-    for 
+    reddit = praw.Reddit('bot1')
 
-#--------------------------------------------------------
+    for post in reddit.subreddit('The_Donald').hot():
+        for comment_forest in post.comments:
+            if isinstance(comment_forest, MoreComments):
+                continue
+            print (comment_forest.body)
+            comment_forest = comment_forest.body
 
-reddit = login()
+
+def __main__():
+
+    get_data()
+
+if __name__ == '__main__': __main__()
