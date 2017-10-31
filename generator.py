@@ -1,20 +1,37 @@
 import praw
 from praw.models import MoreComments
 
-word_score_dict = {}
+def log_and_score(word, score):
+    word_score_dict = {}
 
-def log_and_score(word):
     if word not in word_score_dict:
-        word_score_dict[word] = 1
+        word_score_dict[word] = score
 
     else:
-        word_score_dict[word] += 1
+        word_score_dict[word] += score
+
+    print(word_score_dict)
+
+def split_body(text_body, text_score):
+    word_list = text_body.split()
+
+    for word in word_list:
+        word = ''
+        for char in word:
+            if char < 'A' or char > 'z':
+                continue
+            else:
+                char = str.lower(char)
+                word += char
+                log_and_score(word, text_score)
+
+
 
 def get_data():
 
     reddit = praw.Reddit('bot1')
 
-    for post in reddit.subreddit('The_Donald').top():
+    for post in reddit.subreddit('The_Donald').hot():
         print (" ### POST IS ###")
         print (post.title + '\n')
         print ("--------------------------------- AND SCORE IS : " + str(post.score))
@@ -28,7 +45,7 @@ def get_data():
 
             print (comment_forest.body)
             print ("\n" + "COMMENT SCORE IS : " + str(comment_forest.score))
-            comment_forest = comment_forest.body
+            split_body(comment_forest.body, comment_forest.score)
 
 
 def __main__():
