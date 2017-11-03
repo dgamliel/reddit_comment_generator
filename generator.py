@@ -1,19 +1,9 @@
 import praw
 from praw.models import MoreComments
 
-def log_and_score(word, score):
-    word_score_dict = {}
+word_dict = {}
 
-    if word not in word_score_dict:
-        word_score_dict[word] = score
-
-    else:
-        word_score_dict[word] += score
-
-    print(word_score_dict)
-
-def split_body(text_body, text_score):
-    word_list = text_body.split()
+def strip_words(in_word):
 
     for word in word_list:
         word = ''
@@ -25,6 +15,20 @@ def split_body(text_body, text_score):
                 word += char
                 log_and_score(word, text_score)
 
+    return word
+
+def log_and_score(word, score):
+
+    if word not in word_dict:
+        word_dict[word] = score
+
+    else:
+        word_dict[word] += score
+
+    print(word_dict)
+
+def split_body(text_body, text_score):
+    word_list = text_body.split()
 
 
 def get_data():
@@ -40,12 +44,15 @@ def get_data():
             if isinstance(comment_forest, MoreComments):
                 continue
 
-            if comment_forest.body == "[deleted]" or comment_forest.body == "[removed]":
+            text_body = comment_forest.body
+            comment_score = comment_forest.score
+
+            if text_body == "[deleted]" or text_body == "[removed]":
                 continue
 
-            print (comment_forest.body)
-            print ("\n" + "COMMENT SCORE IS : " + str(comment_forest.score))
-            split_body(comment_forest.body, comment_forest.score)
+            print (text_body)
+            print ("\n" + "COMMENT SCORE IS : " + str(comment_score))
+            split_body(text_body, comment_score)
 
 
 def __main__():
