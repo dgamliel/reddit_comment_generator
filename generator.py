@@ -1,58 +1,36 @@
 import praw
+import config
 from praw.models import MoreComments
 
-word_dict = {}
+def login():
 
-def strip_words(in_word):
+        '''
+        Initializes a reddit instance.
+        logs in by importing config.txt.
 
-    for word in word_list:
-        word = ''
-        for char in word:
-            if char < 'A' or char > 'z':
-                continue
-            else:
-                char = str.lower(char)
-                word += char
-                log_and_score(word, text_score)
+        Username, password, client_id, and client_secret are all strings.
+        '''
 
-    return word
+        reddit = praw.Reddit(username = config.username,
+                                 password = config.password,
+                                 client_id = config.client_id,
+                                 client_secret = config.client_secret,
+                                             user_agent = config.user_agent)
 
-def log_and_score(word, score):
+        print ("Successfully logged into reddit" + '\n')
 
-    if word not in word_dict:
-        word_dict[word] = score
-
-    else:
-        word_dict[word] += score
-
-    print(word_dict)
-
-def split_body(text_body, text_score):
-    word_list = text_body.split()
-
+        return reddit #Returns a reddit instance, essentially "logs in"
 
 def get_data():
 
     reddit = praw.Reddit('bot1')
 
     for post in reddit.subreddit('The_Donald').hot():
-        print (" ### POST IS ###")
-        print (post.title + '\n')
-        print ("--------------------------------- AND SCORE IS : " + str(post.score))
         for comment_forest in post.comments:
-
             if isinstance(comment_forest, MoreComments):
-                continue
-
-            text_body = comment_forest.body
-            comment_score = comment_forest.score
-
-            if text_body == "[deleted]" or text_body == "[removed]":
-                continue
-
-            print (text_body)
-            print ("\n" + "COMMENT SCORE IS : " + str(comment_score))
-            split_body(text_body, comment_score)
+                continuecc
+            print (comment_forest.body)
+            comment_forest = comment_forest.body
 
 
 def __main__():
