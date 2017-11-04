@@ -53,8 +53,8 @@ class Generator():
                 if(not(self.duplicate(word.word,self.nouns))): #check if word is already in list
                     self.nouns.append(word) #append to that list
             elif(word.pos=="NNS"):
-            if(not(self.duplicate(word.word,self.nounsPlural))):
-            self.adjSuperlatives.append(word)
+                if(not(self.duplicate(word.word,self.nounsPlural))):
+                    self.adjSuperlatives.append(word)
 
             elif(word.pos=="NNP"):
                 if(not(self.duplicate(word.word,self.pnouns))):
@@ -68,84 +68,84 @@ class Generator():
                     self.verbs.append(word)
 
             elif(word.pos=="VBD"):
-            if(not(self.duplicate(word.word,self.verbsPast))):
-            self.verbsPast.append(word)
+                if(not(self.duplicate(word.word,self.verbsPast))):
+                    self.verbsPast.append(word)
 
             elif(word.pos=="VBN"):
-            if(not(self.duplicate(word.word,self.verbsPastParticiples))):
-            self.verbsPastParticiples.append(word)
+                if(not(self.duplicate(word.word,self.verbsPastParticiples))):
+                    self.verbsPastParticiples.append(word)
 
             elif(word.pos=="VBP"):
-            if(not(self.duplicate(word.word,self.verbsNon3rdSingularPresent))):
-            self.verbsNon3rdSingularPresent.append(word)
+                if(not(self.duplicate(word.word,self.verbsNon3rdSingularPresent))):
+                    self.verbsNon3rdSingularPresent.append(word)
 
             elif(word.pos=="VBZ"):
-            if(not(self.duplicate(word.word,self.verbs3rdSingularPresent))):
-            self.verbs3rdSingularPresent.append(word)
+                if(not(self.duplicate(word.word,self.verbs3rdSingularPresent))):
+                    self.verbs3rdSingularPresent.append(word)
 
             elif(word.pos=="CC"):
-            if(not(self.duplicate(word.word,self.coordConjunctions))):
-            self.coordConjunctions.append(word)
+                if(not(self.duplicate(word.word,self.coordConjunctions))):
+                    self.coordConjunctions.append(word)
 
             elif(word.pos=="CD"):
-            if(not(self.duplicate(word.word,self.cardinalNum))):
-            self.cardinalNum.append(word)
+                if(not(self.duplicate(word.word,self.cardinalNum))):
+                    self.cardinalNum.append(word)
 
             elif(word.pos=="DT"):
-            if(not(self.duplicate(word.word,self.determiners))):
-            self.determiners.append(word)
+                if(not(self.duplicate(word.word,self.determiners))):
+                    self.determiners.append(word)
 
             elif(word.pos=="FW"):
-            if(not(self.duplicate(word.word,self.foreignWords))):
-            self.foreignWords.append(word)
+                if(not(self.duplicate(word.word,self.foreignWords))):
+                    self.foreignWords.append(word)
 
             elif(word.pos=="IN"):
-            if(not(self.duplicate(word.word,self.prepositions))):
-            self.prepositions.append(word)
+                if(not(self.duplicate(word.word,self.prepositions))):
+                    self.prepositions.append(word)
 
             elif(word.pos=="JJ"):
-            if(not(self.duplicate(word.word,self.adjectives))):
-            self.adjectives.append(word)
+                if(not(self.duplicate(word.word,self.adjectives))):
+                    self.adjectives.append(word)
 
             elif(word.pos=="JJR"):
-            if(not(self.duplicate(word.word,self.adjComparatives))):
-            self.adjComparatives.append(word)
+                if(not(self.duplicate(word.word,self.adjComparatives))):
+                    self.adjComparatives.append(word)
 
             elif(word.pos=="JJS"):
-            if(not(self.duplicate(word.word,self.adjSuperlatives))):
-            self.adjSuperlatives.append(word)
+                if(not(self.duplicate(word.word,self.adjSuperlatives))):
+                    self.adjSuperlatives.append(word)
 
             elif(word.pos=="PDT"):
-            if(not(self.duplicate(word.word,self.predeterminers))):
-            self.predeterminers.append(word)
+                if(not(self.duplicate(word.word,self.predeterminers))):
+                    self.predeterminers.append(word)
 
             elif(word.pos=="POS"):
-            if(not(self.duplicate(word.word,self.possessiveEnds))):
-            self.possessiveEnds.append(word)
+                if(not(self.duplicate(word.word,self.possessiveEnds))):
+                    self.possessiveEnds.append(word)
 
             elif(word.pos=="PRP"):
-            if(not(self.duplicate(word.word,self.personalPronouns))):
-            self.personalPronouns.append(word)
+                if(not(self.duplicate(word.word,self.personalPronouns))):
+                    self.personalPronouns.append(word)
 
             elif(word.pos=="PRP$"):
-            if(not(self.duplicate(word.word,self.possessivePronouns))):
-            self.possessivePronouns.append(word)
+                if(not(self.duplicate(word.word,self.possessivePronouns))):
+                    self.possessivePronouns.append(word)
 
             elif(word.pos=="RB"):
-            if(not(self.duplicate(word.word,self.adverbs))):
-            self.adverbs.append(word)
+                if(not(self.duplicate(word.word,self.adverbs))):
+                    self.adverbs.append(word)
 
             elif(word.pos=="RBR"):
-            if(not(self.duplicate(word.word,self.adverbComparatives))):
-            self.adverbComparatives.append(word)
+                if(not(self.duplicate(word.word,self.adverbComparatives))):
+                    self.adverbComparatives.append(word)
 
             elif(word.pos=="RBS"):
-            if(not(self.duplicate(word.word,self.adverbSuperlatives))):
-            self.adverbSuperlatives.append(word)
+                if(not(self.duplicate(word.word,self.adverbSuperlatives))):
+                    self.adverbSuperlatives.append(word)
 
             elif(word.pos=="UH"):
-            if(not(self.duplicate(word.word,self.interjections))):
-            self.interjections.append(word)
+                if(not(self.duplicate(word.word,self.interjections))):
+                    self.interjections.append(word)
 
         
 
@@ -167,18 +167,6 @@ def get_data():
 
 
 
-            
-
-def __main__():
-
-    get_data()
-
-if __name__ == '__main__': __main__()
-
-        print ("Successfully logged into reddit" + '\n')
-
-        return reddit #Returns a reddit instance, essentially "logs in"
-
 def get_data():
 
     reddit = praw.Reddit('bot1')
@@ -186,10 +174,10 @@ def get_data():
     for post in reddit.subreddit('The_Donald').hot():
         for comment_forest in post.comments:
             if isinstance(comment_forest, MoreComments):
-                continuecc
+                continue
             print (comment_forest.body)
             comment_forest = comment_forest.body
-
+            
 
 def __main__():
 
