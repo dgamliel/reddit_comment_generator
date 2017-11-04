@@ -31,6 +31,11 @@ class Generator():
         self.adverbComparatives = []
         self.adverbSuperlatives = []
         self.interjections = []
+	self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast,\
+	self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,\
+	self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,\
+	self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,\
+	self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
 
     #converts comment into TextBlob object, returns tags 
     def getSentencePOS(self,comment):
