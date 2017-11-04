@@ -31,11 +31,31 @@ class Generator():
         self.adverbComparatives = []
         self.adverbSuperlatives = []
         self.interjections = []
+
+        #List containing all other sublists
 	self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast,\
 	self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,\
 	self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,\
 	self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,\
 	self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
+
+
+    #Returns list of words sorted by score, largest score at 0th index, smallest      at nth
+    def sort(self):
+        for lst in self.posLists:
+
+            index = 0
+            while index < len(lst):
+                if lst[index].get_score() < lst[index+1].get_score():
+                    tmp = lst[index]
+                    lst[index] = lst[index+1]
+                    lst[index+1] = tmp
+
+                    index = 0
+
+                index+=1
+                                
+
 
     #converts comment into TextBlob object, returns tags 
     def getSentencePOS(self,comment):
