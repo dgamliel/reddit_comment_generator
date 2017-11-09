@@ -6,51 +6,44 @@ from Word import Word
 class Generator():
 
     def __init__(self):
-        self.nouns = []
-        self.nounsPlural = []
-        self.pnouns = []
-        self.pnounsPlural = []
-        self.verbs = []
-        self.verbsPast = []
-        self.verbs3rdSingularPresent = []
-        self.verbsPastParticiples = []
-        self.verbsNon3rdSingularPresent = []
-        self.coordConjunctions = []
-        self.cardinalNum = []
-        self.determiners = []
-        self.foreignWords = []
-        self.prepositions = []
-        self.adjectives = []
-        self.adjComparatives = []
-        self.adjSuperlatives = []
-        self.predeterminers = []
-        self.possessiveEnds = []
-        self.possessivePronouns = []
-        self.personalPronouns = []
-        self.adverbs = []
-        self.adverbComparatives = []
-        self.adverbSuperlatives = []
-        self.interjections = []
+        self.nouns = {}
+        self.nounsPlural ={}]
+        self.pnouns = {}
+        self.pnounsPlural = {}
+        self.verbs = {}
+        self.verbsPast = {}
+        self.verbs3rdSingularPresent = {}
+        self.verbsPastParticiples = {}
+        self.verbsNon3rdSingularPresent = {}
+        self.coordConjunctions = {}
+        self.cardinalNum = {}
+        self.determiners = {}
+        self.foreignWords = {}
+        self.prepositions = {}
+        self.adjectives = {}
+        self.adjComparatives = {}
+        self.adjSuperlatives = {}
+        self.predeterminers = {}
+        self.possessiveEnds = {}
+        self.possessivePronouns = {}
+        self.personalPronouns = {}
+        self.adverbs = {}
+        self.adverbComparatives = {}
+        self.adverbSuperlatives = {}
+        self.interjections = {}
 
-        #List containing all other sublists
+        self.listContainer = []
+
+        #List containing all dicitonaries
         self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast, self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
-
 
     #Returns list of words sorted by score, largest score at 0th index, smallest  at nth
     def sort(self):
-        for lst in self.posLists:
 
-            index = 0
-            while index < len(lst):
-                if lst[index].get_score() < lst[index+1].get_score():
-                    tmp = lst[index]
-                    lst[index] = lst[index+1]
-                    lst[index+1] = tmp
+        for dictionary in self.posLists:
+            sorted_list = sorted(dictionary)
+            self.listContainer.append(sorted_list)                                
 
-                    index = 0
-
-                index+=1
-                                
 
 
     #converts comment into TextBlob object, returns tags 
@@ -175,7 +168,7 @@ def get_data():
     reddit = praw.Reddit('bot1')
     g = Generator()
     #grabs first 5 posts from "hot" tab
-    for post in reddit.subreddit('The_Donald').hot(limit=5):
+    for post in reddit.subreddit('The_Donald').hot(limit=200):
         for comment in post.comments:
         #ignore comments not readily readable
             if isinstance(comment,MoreComments):
