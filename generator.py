@@ -33,14 +33,10 @@ class Generator():
         self.interjections = []
 
         #List containing all other sublists
-	self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast,\
-	self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,\
-	self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,\
-	self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,\
-	self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
+        self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast, self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
 
 
-    #Returns list of words sorted by score, largest score at 0th index, smallest      at nth
+    #Returns list of words sorted by score, largest score at 0th index, smallest  at nth
     def sort(self):
         for lst in self.posLists:
 
@@ -191,7 +187,7 @@ def get_data():
 
 
 
-
+'''
 def get_data():
 
     reddit = praw.Reddit('bot1')
@@ -203,6 +199,7 @@ def get_data():
             print (comment_forest.body)
             comment_forest = comment_forest.body
             
+'''
 
 def __main__():
 
