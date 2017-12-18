@@ -1,36 +1,31 @@
-import praw
-from praw.models import MoreComments
-from textblob import TextBlob
-from Word import Word
-
 class Generator():
 
     def __init__(self):
-        self.nouns = {}
-        self.nounsPlural ={}]
-        self.pnouns = {}
-        self.pnounsPlural = {}
-        self.verbs = {}
-        self.verbsPast = {}
-        self.verbs3rdSingularPresent = {}
-        self.verbsPastParticiples = {}
-        self.verbsNon3rdSingularPresent = {}
-        self.coordConjunctions = {}
-        self.cardinalNum = {}
-        self.determiners = {}
-        self.foreignWords = {}
-        self.prepositions = {}
-        self.adjectives = {}
-        self.adjComparatives = {}
-        self.adjSuperlatives = {}
-        self.predeterminers = {}
-        self.possessiveEnds = {}
-        self.possessivePronouns = {}
-        self.personalPronouns = {}
-        self.adverbs = {}
-        self.adverbComparatives = {}
-        self.adverbSuperlatives = {}
-        self.interjections = {}
+        self.nouns = []
+        self.nounsPlural = []
+        self.pnouns = []
+        self.pnounsPlural = []
+        self.verbs = []
+        self.verbsPast = []
+        self.verbs3rdSingularPresent = []
+        self.verbsPastParticiples = []
+        self.verbsNon3rdSingularPresent = []
+        self.coordConjunctions =[]
+        self.cardinalNum =[]
+        self.determiners =[]
+        self.foreignWords =[]
+        self.prepositions =[]
+        self.adjectives =[]
+        self.adjComparatives =[]
+        self.adjSuperlatives =[]
+        self.predeterminers =[]
+        self.possessiveEnds =[]
+        self.possessivePronouns =[]
+        self.personalPronouns =[]
+        self.adverbs =[]
+        self.adverbComparatives =[]
+        self.adverbSuperlatives =[]
+        self.interjections =[]
 
         self.listContainer = []
 
@@ -44,7 +39,7 @@ class Generator():
             sorted_list = sorted(dictionary)
             self.listContainer.append(sorted_list)                                
 
-
+        print(len(self.listContainer))
 
     #converts comment into TextBlob object, returns tags 
     def getSentencePOS(self,comment):
@@ -161,41 +156,3 @@ class Generator():
                 if(not(self.duplicate(word.word,self.interjections))):
                     self.interjections.append(word)
 
-        
-
-def get_data():
-
-    reddit = praw.Reddit('bot1')
-    g = Generator()
-    #grabs first 5 posts from "hot" tab
-    for post in reddit.subreddit('The_Donald').hot(limit=200):
-        for comment in post.comments:
-        #ignore comments not readily readable
-            if isinstance(comment,MoreComments):
-                continue
-            #Comment->TextBlob->switchcases->lists
-            g.sortPOS(g.getSentencePOS(str(comment.body)))
-    #testing lists
-    print(g.determiners[0].word,g.verbs3rdSingularPresent[0].word,g.determiners[1].word,g.nouns[0].word)
-
-
-
-'''
-def get_data():
-
-    reddit = praw.Reddit('bot1')
-
-    for post in reddit.subreddit('The_Donald').hot():
-        for comment_forest in post.comments:
-            if isinstance(comment_forest, MoreComments):
-                continue
-            print (comment_forest.body)
-            comment_forest = comment_forest.body
-            
-'''
-
-def __main__():
-
-    get_data()
-
-if __name__ == '__main__': __main__()
