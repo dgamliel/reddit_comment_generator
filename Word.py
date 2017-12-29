@@ -27,16 +27,16 @@ def comment_to_textblob(raw_text_arr):
     #Initializes empty list to contain sublists of tagged words
     textblob_arr = []
 
+    i = 0
     for raw_tuple in raw_text_arr:
-        score = raw_text_arr[0][0]
-        print(score)
+        score = raw_text_arr[i][0]
         tags = raw_tuple[1].tags
+        i += 1
         for tag_list in tags:
             word = tag_list[0]
             part_of_speech = tag_list[1]
             return_tuple = (score, part_of_speech, word )   
             textblob_arr.append(return_tuple)
-            print(return_tuple)
 
 
     #Note: Each sublist contains a complete t_d comment, split into tuples that contain the word and POS
