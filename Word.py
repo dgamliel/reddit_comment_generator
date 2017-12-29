@@ -20,7 +20,7 @@ def get_data():
             str_comment = TextBlob(comment.body)        #turns raw str into textblob obj
             weighted_tuple = (raw_score, str_comment)   #creates a tuple to store the weight of the textblob and the textblob itself
             raw_text_arr.append(weighted_tuple)         #creates a list of textblob objects
-            
+     
     return raw_text_arr                                 #returns a list of tuples [(score, TextBlob),...]
 
 def comment_to_textblob(raw_text_arr):
@@ -36,6 +36,8 @@ def comment_to_textblob(raw_text_arr):
             part_of_speech = tag_list[1]
             return_tuple = (score, part_of_speech, word )   
             textblob_arr.append(return_tuple)
+            print(return_tuple)
+
 
     #Note: Each sublist contains a complete t_d comment, split into tuples that contain the word and POS
     return textblob_arr
@@ -48,6 +50,6 @@ def weighted_comment_score(comment_obj):
     return raw_score
 
 ### Testing ###
-test = get_data()
-test = comment_to_textblob(test)
+data = get_data()
+myTextBlob = comment_to_textblob(data)
 

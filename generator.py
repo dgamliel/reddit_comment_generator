@@ -1,33 +1,33 @@
 class Generator():
 
-    def __init__(self):
-        self.nouns = []
-        self.nounsPlural = []
-        self.pnouns = []
-        self.pnounsPlural = []
-        self.verbs = []
-        self.verbsPast = []
-        self.verbs3rdSingularPresent = []
-        self.verbsPastParticiples = []
-        self.verbsNon3rdSingularPresent = []
-        self.coordConjunctions =[]
-        self.cardinalNum =[]
-        self.determiners =[]
-        self.foreignWords =[]
-        self.prepositions =[]
-        self.adjectives =[]
-        self.adjComparatives =[]
-        self.adjSuperlatives =[]
-        self.predeterminers =[]
-        self.possessiveEnds =[]
-        self.possessivePronouns =[]
-        self.personalPronouns =[]
-        self.adverbs =[]
-        self.adverbComparatives =[]
-        self.adverbSuperlatives =[]
-        self.interjections =[]
+    def __init__(self, self.word):
+        self.nouns = {}
+        self.nounsPlural = {}
+        self.pnouns = {}
+        self.pnounsPlural = {}
+        self.verbs = {}
+        self.verbsPast = {}
+        self.verbs3rdSingularPresent = {}
+        self.verbsPastParticiples = {}
+        self.verbsNon3rdSingularPresent = {}
+        self.coordConjunctions ={}
+        self.cardinalNum ={}
+        self.determiners ={}
+        self.foreignWords ={}
+        self.prepositions ={}
+        self.adjectives ={}
+        self.adjComparatives ={}
+        self.adjSuperlatives ={}
+        self.predeterminers ={}
+        self.possessiveEnds ={}
+        self.possessivePronouns ={}
+        self.personalPronouns ={}
+        self.adverbs ={}
+        self.adverbComparatives ={}
+        self.adverbSuperlatives ={}
+        self.interjections ={}
 
-        self.listContainer = []
+        self.listContainer = {}
 
         #List containing all dicitonaries
         self.posLists = [self.nouns,self.nounsPlural,self.pnouns,self.pnounsPlural,self.verbs,self.verbsPast, self.verbs3rdSingularPresent,self.verbsNon3rdSingularPresent,self.coordConjunctions,self.cardinalNum,self.determiners,self.foreignWords,self.prepositions,self.adjectives,self.adjComparatives,self.adjSuperlatives,self.predeterminers,self.possessiveEnds,self.possessivePronouns,self.personalPronouns,self.adverbs,self.adverbComparatives,self.adverbSuperlatives,self.interjections]
